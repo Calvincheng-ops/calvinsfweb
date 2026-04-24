@@ -1,0 +1,504 @@
+/* ============================================================
+   Multi-page additions for the Journal-style production site.
+   Layered on top of shared.css + variation-journal.css.
+   ============================================================ */
+
+/* The journal CSS scopes everything under .v-journal. We re-host
+   those tokens at body level so .jr-* classes work outside the
+   variation wrapper used by the design playground. */
+body.page {
+  --accent: var(--accent-ochre);
+  --hero-bg: #17140f;
+  --hero-ink: #f4ebd9;
+  --hero-muted: #a39680;
+}
+
+/* Slim sub-page header (used on pages that don't have a full hero) */
+.page-head {
+  position: relative;
+  padding: 200px 64px 80px;
+  background: var(--paper);
+  border-bottom: 1px solid rgba(21, 19, 16, 0.12);
+  overflow: hidden;
+}
+.page-head .inner {
+  max-width: 1480px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: end;
+}
+.page-head .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.page-head .eyebrow .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.page-head h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  font-size: clamp(56px, 8vw, 124px);
+  color: var(--ink);
+}
+.page-head h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.page-head .lede {
+  font-family: var(--font-serif-body);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  max-width: 480px;
+  padding-bottom: 14px;
+}
+.page-head .crumbs {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+  display: flex;
+  gap: 12px;
+}
+.page-head .crumbs a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .3s ease;
+}
+.page-head .crumbs a:hover { color: var(--accent); }
+.page-head .crumbs span.sep { opacity: .4; }
+
+/* ------------------------------------------------------------
+   Page footer (shared) — replaces the heavy colophon used only
+   on the contact page.
+   ------------------------------------------------------------ */
+.site-foot {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 80px 64px 40px;
+}
+.site-foot .row {
+  max-width: 1480px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(244, 235, 217, 0.12);
+}
+.site-foot .brand {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.site-foot .brand em {
+  font-style: italic;
+  color: var(--accent);
+}
+.site-foot .tag {
+  margin-top: 14px;
+  font-family: var(--font-serif-body);
+  font-size: 14px;
+  color: rgba(244, 235, 217, 0.7);
+  max-width: 260px;
+  line-height: 1.6;
+}
+.site-foot h5 {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(244, 235, 217, 0.5);
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.site-foot a {
+  display: block;
+  color: rgba(244, 235, 217, 0.85);
+  text-decoration: none;
+  font-family: var(--font-serif-body);
+  font-size: 15px;
+  padding: 5px 0;
+  transition: color .3s ease;
+}
+.site-foot a:hover { color: var(--accent); }
+.site-foot .legal {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 235, 217, 0.45);
+}
+
+/* Section preview cards on the home page — links to inner pages */
+.home-previews {
+  padding: 120px 64px;
+  background: var(--paper);
+}
+.home-previews .head {
+  max-width: 1480px;
+  margin: 0 auto 70px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: end;
+}
+.home-previews h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 92px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.home-previews h2 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.home-previews .head .meta {
+  font-family: var(--font-serif-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  max-width: 460px;
+}
+.home-previews .head .meta strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.home-previews .grid {
+  max-width: 1480px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.home-previews .pcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--cream);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  isolation: isolate;
+}
+.home-previews .pcard .img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transition: transform .8s cubic-bezier(.16,1,.3,1);
+}
+.home-previews .pcard .img .ph {
+  width: 100%; height: 100%;
+}
+.home-previews .pcard .img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(20, 17, 13, 0.85) 100%);
+}
+.home-previews .pcard .body {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding: 22px 22px 24px;
+  color: var(--paper);
+}
+.home-previews .pcard .num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(244, 235, 217, 0.7);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.home-previews .pcard h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+.home-previews .pcard h4 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.home-previews .pcard .arr {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.home-previews .pcard:hover .img { transform: scale(1.06); }
+
+@media (max-width: 1100px) {
+  .home-previews .grid { grid-template-columns: repeat(2, 1fr); }
+  .page-head .inner,
+  .home-previews .head { grid-template-columns: 1fr; }
+  .site-foot .row { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .page-head { padding: 160px 24px 56px; }
+  .home-previews { padding: 80px 24px; }
+  .home-previews .grid { grid-template-columns: 1fr; }
+  .site-foot { padding: 60px 24px 30px; }
+  .site-foot .row { grid-template-columns: 1fr; gap: 36px; }
+  .site-foot .legal { flex-direction: column; gap: 12px; }
+}
+
+/* ------------------------------------------------------------
+   Gallery page — lightbox-friendly extended grid
+   ------------------------------------------------------------ */
+.gl-extended {
+  padding: 30px 44px 100px;
+  background: var(--paper);
+}
+.gl-extended .filter {
+  max-width: 1480px;
+  margin: 0 auto 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.gl-extended .filter button {
+  background: transparent;
+  border: 1px solid rgba(21, 19, 16, 0.18);
+  border-radius: 999px;
+  padding: 9px 16px;
+  font: inherit;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.gl-extended .filter button:hover { border-color: var(--accent); color: var(--accent); }
+.gl-extended .filter button.on {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* ------------------------------------------------------------
+   Contact page — form
+   ------------------------------------------------------------ */
+.contact-grid {
+  padding: 100px 64px;
+  background: var(--paper);
+}
+.contact-grid .inner {
+  max-width: 1480px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 96px;
+}
+.contact-grid .info h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+.contact-grid .info h3 em { font-style: italic; color: var(--accent); }
+.contact-grid .info p {
+  font-family: var(--font-serif-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  margin-bottom: 28px;
+  max-width: 440px;
+}
+.contact-grid .info .channels {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+}
+.contact-grid .info .ch {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.contact-grid .info .ch .k {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.contact-grid .info .ch .v {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ink);
+  transition: color .3s ease;
+}
+.contact-grid .info .ch:hover .v { color: var(--accent); }
+
+.contact-form { display: flex; flex-direction: column; gap: 22px; }
+.contact-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.contact-form label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(21, 19, 16, 0.22);
+  padding: 12px 0;
+  font-family: var(--font-serif-body);
+  font-size: 17px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .3s ease;
+}
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.6;
+}
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  border-bottom-color: var(--accent);
+}
+.contact-form .row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.contact-form .submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 30px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 6px;
+  transition: all .5s cubic-bezier(.16,1,.3,1);
+}
+.contact-form .submit:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+@media (max-width: 1100px) {
+  .contact-grid .inner { grid-template-columns: 1fr; gap: 56px; }
+}
+@media (max-width: 720px) {
+  .contact-grid { padding: 60px 24px; }
+  .contact-form .row2 { grid-template-columns: 1fr; }
+}
+
+/* Fix: page-head h1 font-size smaller so Chinese second line never wraps to a third */
+.page-head h1 { font-size: clamp(40px, 5.5vw, 96px); }
+
+/* Fix: hero title — 4-character name, smaller size + fix top-clip from overflow:hidden */
+body.page .jr-hero-title {
+  font-size: clamp(48px, 6vw, 96px);
+  white-space: nowrap;
+  line-height: 1.1;
+}
+body.page .jr-hero-title .line {
+  overflow: visible;
+  padding-top: 0.08em;
+}
+
+/* Fix: portrait in feature section should scroll with page, not stay sticky */
+body.page .jr-feature .portrait {
+  position: relative;
+  top: auto;
+}
+
+/* nav active state for multi-page */
+.jr-nav .jr-links a[aria-current="page"] {
+  opacity: 1;
+  color: var(--accent);
+}
+.jr-nav .jr-links a[aria-current="page"]::after {
+  right: 0;
+}
+
+/* on sub-pages we want the nav light from the start */
+body.page .jr-nav { background: rgba(248, 243, 235, 0.88); backdrop-filter: blur(18px) saturate(1.2); -webkit-backdrop-filter: blur(18px) saturate(1.2); border-bottom-color: var(--rule); }
+body.page .jr-nav .brand,
+body.page .jr-nav .brand-mark,
+body.page .jr-nav .brand-name,
+body.page .jr-nav .brand-name em,
+body.page .jr-nav .jr-links a { color: var(--ink); }
+body.page .jr-nav .brand-name { color: var(--muted); }
+body.page .jr-nav .brand-mark em { color: var(--accent); }
+
+/* ── 图片注入辅助（由 pages.js initContent 添加 data-img-loaded 属性）──
+   隐藏占位块的彩色背景色和标签文字，让真实背景图完全显示。           */
+.ph[data-img-loaded] {
+  /* 清除占位色块的背景色，让行内 background-image（真实照片）完整显示 */
+  background-color: transparent !important;
+}
+.ph[data-img-loaded]::before,
+.ph[data-img-loaded]::after {
+  /* 隐藏占位标签文字 */
+  display: none !important;
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>上头阿豪 · Portfolio — 首页</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="journal.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body class="grain page v-journal">
+
+<header class="jr-nav">
+  <a class="brand" href="index.html">
+    <span class="brand-mark">C<em>.</em></span>
+    <span class="brand-name">阿豪 <span class="sep">·</span> <em>Ahao</em></span>
+  </a>
+  <nav class="jr-links">
+    <a href="index.html">首页</a>
+    <a href="about.html">关于我</a>
+    <a href="life.html">校园生活</a>
+    <a href="gallery.html">影像志</a>
+    <a href="thoughts.html">思考</a>
+    <a href="contact.html">联系</a>
+  </nav>
+</header>
+
+<section class="jr-hero" id="home">
+  <div class="jr-hero-bg">
+    <div class="ph" data-img="hero" data-label="Hero · 主照片"></div>
+    <div class="jr-hero-veil"></div>
+  </div>
+
+  <div class="jr-hero-inner">
+    <div class="jr-hero-copy">
+      <div class="eyebrow"><span class="dot"></span>你好，我是</div>
+      <h1 class="jr-hero-title">
+        <span class="line"><span class="ink">上头</span><span class="ink">阿豪</span></span>
+        <span class="line jr-hero-alt"><em>Ahao</em><span class="slash">/</span><span class="tiny">学生 · 摄影 · 思考者</span></span>
+      </h1>
+      <p class="jr-hero-lede">
+        一个外向开朗的大三学生，<br/>
+        用镜头和文字，记录每一段<em>值得被记住</em>的日常。
+      </p>
+      <div class="jr-hero-meta">
+        <div><span class="k">现在</span><span class="v">某某大学 · 信息管理</span></div>
+        <div><span class="k">偏好</span><span class="v">朋友 · 旅行 · 摄影 · 思考</span></div>
+      </div>
+      <div class="jr-hero-actions">
+        <a href="life.html" class="btn-primary">走进我的生活 <span class="arr">→</span></a>
+        <a href="about.html" class="btn-ghost">关于我</a>
+      </div>
+    </div>
+
+    <div class="jr-hero-aside">
+      <div class="jr-poster">
+        <div class="ph" data-img="portrait" data-label="Portrait · 肖像" data-tone="warm"></div>
+        <div class="jr-poster-cap">
+          <span>Portrait</span>
+          <span>2026 · 春</span>
+        </div>
+      </div>
+      <div class="jr-poster jr-poster-small">
+        <div class="ph" data-img="portraitSm" data-label="Detail" data-tone="cool"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="jr-hero-foot">
+    <span class="left">某某大学 · 大三 · 2026</span>
+    <span class="mid"><span class="bar"></span> 向下滚动 <span class="bar"></span></span>
+    <span class="right">6 个章节 · 60+ 张照片</span>
+  </div>
+</section>
+
+<div class="jr-ticker">
+  <div class="track">
+    <span>朋友 &middot; Friends</span>
+    <span>旅行 &middot; Travel</span>
+    <span>思考 &middot; Thoughts</span>
+    <span>瞬间 &middot; Moments</span>
+    <span>照片 &middot; Photographs</span>
+    <span>生活 &middot; Life</span>
+    <span>朋友 &middot; Friends</span>
+    <span>旅行 &middot; Travel</span>
+    <span>思考 &middot; Thoughts</span>
+    <span>瞬间 &middot; Moments</span>
+    <span>照片 &middot; Photographs</span>
+    <span>生活 &middot; Life</span>
+  </div>
+</div>
+
+<section class="home-previews">
+  <div class="head">
+    <h2 data-reveal="clip">Inside <em>this site.</em></h2>
+    <div class="meta" data-reveal>
+      <strong>Index · 章节</strong>
+      这个网站像一本被翻开的小杂志——五个章节，可以从任何一页开始，像在书架前慢慢挑一本喜欢的。
+    </div>
+  </div>
+
+  <div class="grid">
+    <a class="pcard" href="about.html" data-reveal>
+      <div class="img"><div class="ph" data-img="about" data-label="About" data-tone="warm"></div></div>
+      <div class="body">
+        <div class="num"><span>Nº 01</span><span>About</span></div>
+        <h4>关于<em> 我</em></h4>
+        <span class="arr">阅读 → </span>
+      </div>
+    </a>
+    <a class="pcard" href="life.html" data-reveal style="--delay:.08s">
+      <div class="img"><div class="ph" data-img="lifeBanner" data-label="Campus"></div></div>
+      <div class="body">
+        <div class="num"><span>Nº 02</span><span>Life</span></div>
+        <h4>校园<em> 生活</em></h4>
+        <span class="arr">阅读 → </span>
+      </div>
+    </a>
+    <a class="pcard" href="gallery.html" data-reveal style="--delay:.16s">
+      <div class="img"><div class="ph" data-img="gallery1" data-label="Gallery" data-tone="cool"></div></div>
+      <div class="body">
+        <div class="num"><span>Nº 03</span><span>Image</span></div>
+        <h4>影像<em> 志</em></h4>
+        <span class="arr">观看 → </span>
+      </div>
+    </a>
+    <a class="pcard" href="thoughts.html" data-reveal style="--delay:.24s">
+      <div class="img"><div class="ph" data-img="gallery9" data-label="Thoughts" data-tone="dark"></div></div>
+      <div class="body">
+        <div class="num"><span>Nº 04</span><span>Thoughts</span></div>
+        <h4>近来<em> 想法</em></h4>
+        <span class="arr">阅读 → </span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="jr-colophon" id="contact">
+  <div class="big" data-reveal="clip">
+    Let's be <em><span class="underline">friends</span></em>.
+  </div>
+  <div class="cta-row" data-reveal style="--delay:.3s">
+    <a href="contact.html" class="btn">写封信给我 →</a>
+    <a href="contact.html" class="btn ghost">微信 / 小红书</a>
+  </div>
+
+  <div class="foot">
+    <div>
+      <div class="title">Ahao & Co.</div>
+      <div>一个热爱生活的大学生</div>
+    </div>
+    <div>
+      <div class="title">Pages</div>
+      <a href="about.html">About</a>
+      <a href="life.html">Campus life</a>
+      <a href="thoughts.html">Thoughts</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <div class="title">Elsewhere</div>
+      <a href="#">Instagram</a>
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+    </div>
+    <div>
+      <div class="title">Colophon</div>
+      <div>Set in Cormorant & Inter</div>
+      <div>© 2026 · Hand-made with care</div>
+    </div>
+  </div>
+</section>
+
+<script src="content.js"></script>
+<script src="pages.js"></script>
+</body>
+</html>

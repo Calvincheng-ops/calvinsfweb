@@ -1,0 +1,29 @@
+=== 图片放置说明 ===
+
+所有图片放到这个 images/ 文件夹里，文件名和下面保持一致。
+图片格式：JPG 或 WEBP（推荐 JPG，文件小质量好）
+
+[首页 & 关于]
+• hero.jpg         首页背景大图      比例 16:9   建议 1920×1080px 以上
+• portrait.jpg     首页右侧竖版照片  比例 3:4    建议 900×1200px
+• portrait-sm.jpg  首页右侧小照片    比例 4:5    建议 600×750px
+• about.jpg        关于我 页竖版照片 比例 3:4    建议 600×800px
+
+[校园生活页]
+• life-banner.jpg            全屏横幅大图  比例 16:6  建议 1920×720px
+  stories/01-travel.jpg      旅行故事配图  比例 4:3   建议 800×600px
+  stories/02-club.jpg        社团配图      比例 4:3   建议 800×600px
+  stories/03-dorm.jpg        宿舍配图      比例 4:3   建议 800×600px
+  stories/04-canteen.jpg     食堂配图      比例 4:3   建议 800×600px
+  stories/05-library.jpg     图书馆配图    比例 4:3   建议 800×600px
+  stories/06-internship.jpg  实习配图      比例 4:3   建议 800×600px
+
+[影像志页 — 16张]
+  gallery/01.jpg  ~ gallery/16.jpg
+  奇数张（01,03,05...）竖版  比例 3:4  建议 600×800px
+  偶数张（02,04,06...）横版  比例 4:3  建议 800×600px
+
+[联系页]
+• contact-banner.jpg  全屏横幅大图  比例 16:6  建议 1920×720px
+
+=== 设置好图片后，在 content.js 里填入对应文件名 ===

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>联系 · 阿豪</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="journal.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body class="grain page v-journal">
+
+<header class="jr-nav">
+  <a class="brand" href="index.html">
+    <span class="brand-mark">C<em>.</em></span>
+    <span class="brand-name">阿豪 <span class="sep">·</span> <em>Ahao</em></span>
+  </a>
+  <nav class="jr-links">
+    <a href="index.html">首页</a>
+    <a href="about.html">关于我</a>
+    <a href="life.html">校园生活</a>
+    <a href="gallery.html">影像志</a>
+    <a href="thoughts.html">思考</a>
+    <a href="contact.html">联系</a>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="inner">
+    <div>
+      <div class="crumbs">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span>Contact</span>
+      </div>
+      <div class="eyebrow"><span class="dot"></span>Nº 05 · 联系</div>
+      <h1>Let's be<br/><em>friends.</em></h1>
+    </div>
+    <p class="lede">
+      无论是想找我聊聊照片、聊聊大学、聊聊那些你还没和别人说出口的想法——都欢迎。最快的方式是发邮件，最慢的方式（也是我最喜欢的）是写一封真正的信。
+    </p>
+  </div>
+</section>
+
+<section class="contact-grid">
+  <div class="inner">
+    <div class="info" data-reveal>
+      <h3>找到我的<br/><em>几种方式。</em></h3>
+      <p>我每天都会看邮件，48 小时内尽量回复。如果只是随手聊聊，社交媒体也都开着——但请允许我有时候慢一点，那大概是我正窝在某家咖啡馆，对着一本书发呆。</p>
+
+      <div class="channels">
+        <a class="ch" href="mailto:ahao@example.com">
+          <span class="k">Email</span>
+          <span class="v">ahao@example.com</span>
+        </a>
+        <a class="ch" href="#">
+          <span class="k">微信</span>
+          <span class="v">ahao_2026</span>
+        </a>
+        <a class="ch" href="#">
+          <span class="k">小红书</span>
+          <span class="v">@上头阿豪的小本本</span>
+        </a>
+        <a class="ch" href="#">
+          <span class="k">Instagram</span>
+          <span class="v">@ahao.daily</span>
+        </a>
+        <a class="ch" href="#">
+          <span class="k">GitHub</span>
+          <span class="v">github.com/ahao</span>
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" data-reveal style="--delay:.15s">
+      <div class="row2">
+        <div class="field">
+          <label for="name">你的名字</label>
+          <input id="name" type="text" placeholder="比如 · 李四" required />
+        </div>
+        <div class="field">
+          <label for="email">邮箱</label>
+          <input id="email" type="email" placeholder="how-to-reach@you.com" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="topic">想聊点什么</label>
+        <select id="topic">
+          <option>随便聊聊 · Just saying hi</option>
+          <option>关于一张照片</option>
+          <option>关于一篇文章</option>
+          <option>合作邀请</option>
+          <option>其他</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="msg">写点什么吧</label>
+        <textarea id="msg" placeholder="想到什么写什么。哪怕只是一句"嗨"也很好。" required></textarea>
+      </div>
+
+      <button type="submit" class="submit">寄出 · Send →</button>
+    </form>
+  </div>
+</section>
+
+<section class="jr-banner" id="jrBanner">
+  <div class="bg" id="jrBannerBg">
+    <div class="ph" data-img="contactBanner" data-label="一封信的样子" data-tone="warm"></div>
+  </div>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="kicker" data-reveal>P.S.</div>
+    <h3 data-reveal="clip">真心写的字，<br/>总会找到回音。</h3>
+  </div>
+  <div class="credit-l">2026 · 春</div>
+  <div class="credit">Nº 22 — Letter</div>
+</section>
+
+<footer class="site-foot">
+  <div class="row">
+    <div>
+      <div class="brand">C<em>.</em></div>
+      <div class="tag">一个热爱生活的大学生。这个网站是我四年的小杂志。</div>
+    </div>
+    <div>
+      <h5>Pages</h5>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="life.html">Campus life</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+    <div>
+      <h5>More</h5>
+      <a href="thoughts.html">Thoughts</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html">Design playground</a>
+    </div>
+    <div>
+      <h5>Elsewhere</h5>
+      <a href="#">Instagram</a>
+      <a href="#">小红书</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+  <div class="legal">
+    <span>© 2026 阿豪 · 某某大学</span>
+    <span>Set in Cormorant & Inter</span>
+  </div>
+</footer>
+
+<script src="content.js"></script>
+<script src="pages.js"></script>
+</body>
+</html>
