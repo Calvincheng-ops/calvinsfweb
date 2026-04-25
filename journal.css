@@ -69,7 +69,7 @@
 }
 .jr-nav .brand-name {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10.5px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--hero-muted);
@@ -87,8 +87,8 @@
   display: flex;
   gap: 28px;
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 .jr-links a {
@@ -168,8 +168,8 @@
 
 .jr-hero-copy .eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.32em;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--hero-muted);
   display: inline-flex;
@@ -277,8 +277,8 @@
 .jr-hero-meta > div { display: flex; flex-direction: column; gap: 6px; }
 .jr-hero-meta .k {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.28em;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--hero-muted);
 }
@@ -357,12 +357,10 @@
   display: flex;
   justify-content: space-between;
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.24em;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #fff;
-  mix-blend-mode: difference;
-  opacity: 0.85;
+  color: rgba(21, 19, 16, 0.72);
 }
 @keyframes posterIn {
   from { opacity: 0; transform: translateY(40px) scale(1.04); clip-path: inset(0 0 100% 0); }
@@ -380,7 +378,7 @@
   align-items: center;
   font-family: var(--font-mono);
   font-size: 10.5px;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--hero-muted);
   opacity: 0;
