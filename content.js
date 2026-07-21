@@ -53,12 +53,12 @@ window.SITE_CONTENT = {
     // 首页右侧大竖向肖像
     // 用途：首页 hero 右侧的竖向照片卡片
     // 建议尺寸：900 × 1200 px（3:4），人像竖构图
-    portrait: "",
+    portrait: "images/portrait.jpg",
 
     // 首页右侧小照片卡
     // 用途：肖像旁边的小卡片，细节/特写图
     // 建议尺寸：600 × 750 px（4:5）
-    portraitSm: "",
+    portraitSm: "images/portraitSm.jpg",
 
     /* ---- 关于页 about.html & 首页预览卡 ------------------- */
 
