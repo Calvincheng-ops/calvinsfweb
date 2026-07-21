@@ -8,9 +8,12 @@
    variation wrapper used by the design playground. */
 body.page {
   --accent: var(--accent-ochre);
-  --hero-bg: #17140f;
+  /* 暖调深色 Hero（线上原设计意图）：深暖底 + 浅米色字。
+     占位背景与 veil 也改成深色，确保浅色文字清晰可读。 */
+  --hero-bg: #1a1510;
   --hero-ink: #f4ebd9;
-  --hero-muted: #a39680;
+  --hero-muted: #a99a82;
+  --hero-rule: rgba(244, 235, 217, 0.16);
 }
 
 /* Slim sub-page header (used on pages that don't have a full hero) */
@@ -501,4 +504,102 @@ body.page .jr-nav .brand-mark em { color: var(--accent); }
 .ph[data-img-loaded]::after {
   /* 隐藏占位标签文字 */
   display: none !important;
+}
+
+/* ------------------------------------------------------------
+   影像志：筛选切换时的轻微淡入（由 pages.js 加 .reflow 触发）
+   ------------------------------------------------------------ */
+.jr-album .grid .tile.reflow {
+  animation: tileReflow .5s cubic-bezier(.16, 1, .3, 1);
+}
+@keyframes tileReflow {
+  from { opacity: 0; transform: scale(.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ------------------------------------------------------------
+   灯箱 Lightbox（由 pages.js initLightbox 注入）
+   ------------------------------------------------------------ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 6vh 6vw;
+  background: rgba(15, 13, 10, 0.93);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+body.lb-open { overflow: hidden; }
+body.lb-open .lightbox { display: flex; animation: lbFade .3s ease; }
+@keyframes lbFade { from { opacity: 0; } to { opacity: 1; } }
+
+.lightbox .lb-stage {
+  max-width: min(1100px, 90vw);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+}
+.lightbox .lb-img {
+  width: min(1100px, 90vw);
+  height: 78vh;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.lightbox .lb-img.is-empty {
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,0.06) 14px 15px),
+    linear-gradient(135deg, #2b2822, #1d1a15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox .lb-img.is-empty::after {
+  content: attr(data-label);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+.lightbox .lb-cap {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 235, 217, 0.72);
+}
+.lightbox button {
+  position: absolute;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(244, 235, 217, 0.08);
+  color: #f4ebd9;
+  border: 1px solid rgba(244, 235, 217, 0.22);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .3s ease, border-color .3s ease;
+}
+.lightbox button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.lightbox .lb-close { top: 24px; right: 24px; }
+.lightbox .lb-prev  { left: 24px;  top: 50%; transform: translateY(-50%); }
+.lightbox .lb-next  { right: 24px; top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 720px) {
+  .lightbox .lb-img { height: 62vh; }
+  .lightbox .lb-close { top: 14px; right: 14px; }
+  .lightbox .lb-prev  { left: 12px; }
+  .lightbox .lb-next  { right: 12px; }
 }

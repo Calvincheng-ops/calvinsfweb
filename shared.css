@@ -106,6 +106,40 @@ img { display: block; max-width: 100%; }
   z-index: 20;
 }
 
+/* ---------- Keyboard focus (a11y) ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-ochre);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* 鼠标点击时不显示焦点环，仅键盘导航时显示 */
+:focus:not(:focus-visible) { outline: none; }
+
+/* ---------- Reduced motion (a11y) ---------- */
+/* 尊重系统「减少动态效果」设置；同时兜底：即便 JS 失效，
+   reveal 元素也保持可见而不是停留在 opacity:0 */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal],
+  [data-reveal="clip"],
+  [data-reveal="mask"],
+  [data-reveal="zoom"] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
+
 /* ---------- Scroll reveal helper ---------- */
 [data-reveal] {
   opacity: 0;

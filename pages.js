@@ -140,9 +140,135 @@
         var tags = (t.dataset.tags || '').split(' ');
         var show = tag === 'all' || tags.includes(tag);
         t.style.display = show ? '' : 'none';
+        /* 重新出现的瓦片做一次轻微淡入，切换不再生硬 */
+        if (show) {
+          t.classList.remove('reflow');
+          void t.offsetWidth; // 强制重排以重启动画
+          t.classList.add('reflow');
+        }
       });
     });
   }
+
+
+  /* ============================================================
+     6.5 移动端导航 — 注入汉堡按钮 + 全屏抽屉
+     ============================================================ */
+  (function initMobileNav() {
+    var navEl = document.querySelector('.jr-nav');
+    if (!navEl) return;
+    var links = navEl.querySelector('.jr-links');
+    if (!links) return;
+
+    var btn = document.createElement('button');
+    btn.className = 'jr-nav-toggle';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', '打开菜单');
+    btn.setAttribute('aria-expanded', 'false');
+    for (var s = 0; s < 3; s++) btn.appendChild(document.createElement('span'));
+    navEl.appendChild(btn);
+
+    function setOpen(open) {
+      document.body.classList.toggle('nav-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? '关闭菜单' : '打开菜单');
+    }
+
+    btn.addEventListener('click', function () {
+      setOpen(!document.body.classList.contains('nav-open'));
+    });
+    /* 点链接后自动收起 */
+    links.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setOpen(false);
+    });
+    /* Esc 关闭 */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+    /* 放大到桌面宽度时复位，避免抽屉状态残留 */
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 820) setOpen(false);
+    });
+  })();
+
+
+  /* ============================================================
+     6.6 影像志灯箱（gallery.html）— 点击放大 / ←→ 切换 / Esc 关闭
+     ============================================================ */
+  (function initLightbox() {
+    var grid = document.querySelector('.jr-album .grid');
+    if (!grid) return;
+    var phs = Array.prototype.slice.call(
+      grid.querySelectorAll('.tile .ph[data-img]')
+    );
+    if (!phs.length) return;
+
+    /* 用 DOM 方法构建灯箱，避免 innerHTML */
+    function mkBtn(cls, label, text) {
+      var b = document.createElement('button');
+      b.className = cls;
+      b.type = 'button';
+      b.setAttribute('aria-label', label);
+      b.textContent = text;
+      return b;
+    }
+    var box = document.createElement('div');
+    box.className = 'lightbox';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+
+    var btnClose = mkBtn('lb-close', '关闭', '×');
+    var btnPrev  = mkBtn('lb-prev', '上一张', '←');
+    var btnNext  = mkBtn('lb-next', '下一张', '→');
+
+    var stage = document.createElement('figure');
+    stage.className = 'lb-stage';
+    var lbImg = document.createElement('div');
+    lbImg.className = 'lb-img';
+    var lbCap = document.createElement('figcaption');
+    lbCap.className = 'lb-cap';
+    stage.appendChild(lbImg);
+    stage.appendChild(lbCap);
+
+    box.appendChild(btnClose);
+    box.appendChild(btnPrev);
+    box.appendChild(btnNext);
+    box.appendChild(stage);
+    document.body.appendChild(box);
+
+    var idx = 0;
+    function render() {
+      var ph = phs[idx];
+      var bg = ph.style.backgroundImage;
+      lbImg.style.backgroundImage = bg || '';
+      lbImg.classList.toggle('is-empty', !bg);
+      lbImg.setAttribute('data-label', ph.getAttribute('data-label') || '');
+      var tile = ph.closest('.tile');
+      var lbl = tile && tile.querySelector('.lbl');
+      var num = tile && tile.querySelector('.num');
+      lbCap.textContent =
+        (lbl ? lbl.textContent : '') +
+        (num ? '  ·  ' + num.textContent : '');
+    }
+    function open(i) { idx = i; render(); document.body.classList.add('lb-open'); }
+    function close() { document.body.classList.remove('lb-open'); }
+    function go(d) { idx = (idx + d + phs.length) % phs.length; render(); }
+
+    phs.forEach(function (ph, i) {
+      ph.style.cursor = 'zoom-in';
+      ph.addEventListener('click', function () { open(i); });
+    });
+    btnClose.addEventListener('click', close);
+    btnPrev.addEventListener('click', function () { go(-1); });
+    btnNext.addEventListener('click', function () { go(1); });
+    box.addEventListener('click', function (e) { if (e.target === box) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (!document.body.classList.contains('lb-open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') go(-1);
+      else if (e.key === 'ArrowRight') go(1);
+    });
+  })();
 
 
   /* ============================================================
