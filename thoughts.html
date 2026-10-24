@@ -1,143 +1,177 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>思考 · 阿豪</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="shared.css">
-<link rel="stylesheet" href="journal.css">
-<link rel="stylesheet" href="pages.css">
-</head>
-<body class="grain page v-journal">
-
-<header class="jr-nav">
-  <a class="brand" href="index.html">
-    <span class="brand-mark">C<em>.</em></span>
-    <span class="brand-name">阿豪 <span class="sep">·</span> <em>Ahao</em></span>
-  </a>
-  <nav class="jr-links">
-    <a href="index.html">首页</a>
-    <a href="about.html">关于我</a>
-    <a href="life.html">校园生活</a>
-    <a href="gallery.html">影像志</a>
-    <a href="thoughts.html">思考</a>
-    <a href="contact.html">联系</a>
-  </nav>
-</header>
-
-<section class="page-head">
-  <div class="inner">
-    <div>
-      <div class="crumbs">
-        <a href="index.html">Home</a>
-        <span class="sep">/</span>
-        <span>Thoughts</span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>项目手记 · 程志豪 / 上头阿豪</title>
+    <meta
+      name="description"
+      content="从归档智能体、信息流和业务系统实践中，整理关于交互、信息与协作的思考。"
+    />
+    <meta name="theme-color" content="#211c16" />
+    <link rel="canonical" href="https://www.calvinsfweb.top/thoughts.html" />
+    <meta property="og:title" content="项目手记 · 程志豪" />
+    <meta
+      property="og:description"
+      content="从归档智能体、信息流和业务系统实践中，整理关于交互、信息与协作的思考。"
+    />
+    <meta
+      property="og:image"
+      content="https://www.calvinsfweb.top/images/portrait.jpg"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="editorial.css" />
+    <script src="pages.js" defer></script>
+    <noscript
+      ><style>
+        @media (max-width: 820px) {
+          .site-header {
+            height: auto;
+            position: static;
+            flex-wrap: wrap;
+            padding-block: 15px;
+          }
+          #site-nav {
+            display: flex;
+            position: static;
+            height: auto;
+            transform: none;
+            visibility: visible;
+            pointer-events: auto;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 10px 0;
+            gap: 12px;
+            background: transparent;
+          }
+          #site-nav a {
+            font-size: 13px;
+            padding: 5px;
+          }
+          .menu-toggle {
+            display: none;
+          }
+        }
+      </style></noscript
+    >
+  </head>
+  <body class="chapter" id="top">
+    <a class="skip-link" href="#main">跳至正文</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="阿豪，返回首页"
+        ><span class="brand-symbol">C<span>.</span></span
+        ><span>阿豪 <i>/ Ahao</i></span></a
+      ><button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="打开导航菜单"
+      >
+        <span></span><span></span>
+      </button>
+      <nav id="site-nav" aria-label="主导航">
+        <a href="index.html">首页</a><a href="about.html">关于</a
+        ><a href="experience.html">经历</a><a href="projects.html">作品</a
+        ><a href="life.html">校园</a><a href="gallery.html">影像</a
+        ><a href="thoughts.html" aria-current="page">手记</a
+        ><a href="contact.html">联系</a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="chapter-head wrap">
+        <div class="chapter-top">
+          <span class="eyebrow">The Ahao Journal / 06 / FIELD NOTES</span
+          ><span class="edition">2026 · 秋季更新</span>
+        </div>
+        <h1>一边做，<br /><em>一边想清楚。</em></h1>
+        <p class="chapter-intro">
+          从项目和实践中整理的三则手记：关于使用路径、信息组织，以及人与系统之间的协作。
+        </p>
+      </section>
+      <section class="wrap notes-list">
+        <article id="note-01" class="note">
+          <div class="note-meta">
+            <span>01</span><span>PROJECT NOTES<br />OCT. 2026</span>
+          </div>
+          <div>
+            <h2>从“能运行”，到“能被使用”</h2>
+            <p>
+              以归档智能体为例，上传文件只是最后一步。用户怎样指出正确文件、怎样选目录、怎样确认结果，同样决定这个功能能不能顺利使用。
+            </p>
+            <p>
+              因此，我把文件确认、逐层选目录和结果反馈做成连续的交互，并补上操作人校验、请求有效期与重复操作防护。对这类工具，异常路径也是产品的一部分。
+            </p>
+            <a class="text-link" href="projects.html#aily"
+              >对应作品 / 归档智能体 <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </article>
+        <article id="note-02" class="note">
+          <div class="note-meta">
+            <span>02</span><span>PROJECT NOTES<br />OCT. 2026</span>
+          </div>
+          <div>
+            <h2>信息越多，越需要清楚的出处</h2>
+            <p>
+              一级信息流聚合多个信源，但阅读体验不止是把条目放到同一页。快速扫读和集中阅读需要不同的密度，所以我设计了控制台与编辑简报两种模式。
+            </p>
+            <p>
+              外文标题提供中文短译，新闻卡片保留原始出处。定时更新之外，失效信源容错与健康检查也决定了这个入口能否持续使用。
+            </p>
+            <a class="text-link" href="projects.html#newsflow"
+              >对应作品 / 一级信息流 <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </article>
+        <article id="note-03" class="note">
+          <div class="note-meta">
+            <span>03</span><span>PROJECT NOTES<br />OCT. 2026</span>
+          </div>
+          <div>
+            <h2>先把业务关系梳理出来</h2>
+            <p>
+              在企业系统和学生会协作中，一张表单的背后往往连接着多个人：谁提交、谁处理、谁需要知道结果，以及状态改变后要做什么。
+            </p>
+            <p>
+              我的实践从梳理这些关系开始，再落到字段、多表关联、状态与消息通知。工具是实现方式；把责任和信息流转讲清楚，才是协作能够继续的基础。
+            </p>
+            <a class="text-link" href="experience.html"
+              >对应经历 / 企业业务系统 <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <div>
+            <span class="eyebrow">Keep in touch / 保持联系</span>
+            <h2>下一件有意思的事，<br /><em>一起聊聊。</em></h2>
+          </div>
+          <div class="footer-contact">
+            <a class="text-link" href="mailto:19870899528@163.com"
+              >写信给我 <span aria-hidden="true">↗</span></a
+            ><a
+              href="https://github.com/Calvincheng-ops"
+              target="_blank"
+              rel="noopener noreferrer"
+              >在 GitHub 看代码 <span aria-hidden="true">↗</span></a
+            >
+            <p>
+              AI 应用 · 业务系统 · 产品与协作<br />上海 / 东华大学 / 2027 届
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <a class="wordmark" href="index.html">Ahao<span>.</span></a
+          ><span>程志豪的作品与生活手记</span
+          ><span>© 2026 · Made with curiosity.</span
+          ><a href="#top">回到顶部 ↑</a>
+        </div>
       </div>
-      <div class="eyebrow"><span class="dot"></span>Nº 04 · 思考</div>
-      <h1>Recent<br/><em>thoughts.</em></h1>
-    </div>
-    <p class="lede">
-      一些随想，一些感悟，一些对生活的观察。不求深刻，只求真诚。如果你读完有什么想法，欢迎写信告诉我。
-    </p>
-  </div>
-</section>
-
-<section class="jr-thoughts">
-  <a class="essay" href="#" data-reveal>
-    <div class="date">2026 · 04 · 10<br/><span class="dur">08 min read</span></div>
-    <div>
-      <h3>关于「社交」的一些想法 <em>On being social.</em></h3>
-      <p class="ex">我一直被人说是"社交小能手"，但这几年越来越觉得——真正的社交能力，不是认识多少人，而是能让身边的人在你面前放松下来。真诚比外向更重要，倾听比表达更稀缺。</p>
-    </div>
-    <div class="arr">Essay Nº 01 →</div>
-  </a>
-  <a class="essay" href="#" data-reveal>
-    <div class="date">2026 · 03 · 22<br/><span class="dur">05 min read</span></div>
-    <div>
-      <h3>为什么我喜欢记录生活 <em>On keeping a journal.</em></h3>
-      <p class="ex">记忆是会骗人的。你以为你记住了那个夏天，其实你只记住了自己希望记住的样子。所以我开始拍照、写日记、攒车票——不是为了给别人看，是为了提醒未来的自己：我确实，那样活过。</p>
-    </div>
-    <div class="arr">Essay Nº 02 →</div>
-  </a>
-  <a class="essay" href="#" data-reveal>
-    <div class="date">2026 · 03 · 08<br/><span class="dur">06 min read</span></div>
-    <div>
-      <h3>大学教会我的三件事 <em>Three lessons.</em></h3>
-      <p class="ex">第一，成绩不是全部。第二，和什么样的人做朋友，决定了你会成为什么样的人。第三，真正重要的事没有人会提醒你去做——主动性，是成年世界里最稀缺的东西。</p>
-    </div>
-    <div class="arr">Essay Nº 03 →</div>
-  </a>
-  <a class="essay" href="#" data-reveal>
-    <div class="date">2026 · 02 · 15<br/><span class="dur">04 min read</span></div>
-    <div>
-      <h3>读了一本改变我想法的书 <em>A book that changed me.</em></h3>
-      <p class="ex">最近在读《当你凝视深渊》，里面有句话让我停了很久："大多数人不是被问题击倒的，是被自己对问题的想象击倒的。"——很多时候我们困在原地，不是因为事情有多难，而是因为我们把它想得太难。</p>
-    </div>
-    <div class="arr">Essay Nº 04 →</div>
-  </a>
-  <a class="essay" href="#" data-reveal>
-    <div class="date">2026 · 01 · 30<br/><span class="dur">03 min read</span></div>
-    <div>
-      <h3>一个人的晚饭 <em>Dinner for one.</em></h3>
-      <p class="ex">周二晚上，宿舍同学都不在。我一个人去了学校门口那家小馆子，点了一份最爱的红烧茄子盖饭。突然发现，一个人吃饭其实没那么惨——甚至还挺好的。</p>
-    </div>
-    <div class="arr">Essay Nº 05 →</div>
-  </a>
-  <a class="essay" href="#" data-reveal>
-    <div class="date">2025 · 12 · 18<br/><span class="dur">05 min read</span></div>
-    <div>
-      <h3>关于"主动" <em>On taking the first step.</em></h3>
-      <p class="ex">我发现大学最大的分水岭，不是聪不聪明，是主不主动。主动加一个微信、主动去蹭一节有意思的课、主动给老师发一封邮件——这些主动累积下来，就是完全不同的两种大学。</p>
-    </div>
-    <div class="arr">Essay Nº 06 →</div>
-  </a>
-</section>
-
-<section class="jr-quote">
-  <div class="kicker" data-reveal>Note to self</div>
-  <blockquote data-reveal="clip">
-    把每一个<em>平凡的日子</em>，<br/>都过成将来愿意回头看的样子。
-  </blockquote>
-  <span class="src" data-reveal style="--delay:.25s">Ahao &middot; 2026</span>
-</section>
-
-<footer class="site-foot">
-  <div class="row">
-    <div>
-      <div class="brand">C<em>.</em></div>
-      <div class="tag">一个热爱生活的大学生。这个网站是我四年的小杂志。</div>
-    </div>
-    <div>
-      <h5>Pages</h5>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="life.html">Campus life</a>
-      <a href="gallery.html">Gallery</a>
-    </div>
-    <div>
-      <h5>More</h5>
-      <a href="thoughts.html">Thoughts</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div>
-      <h5>Elsewhere</h5>
-      <a href="#">Instagram</a>
-      <a href="#">小红书</a>
-      <a href="#">GitHub</a>
-    </div>
-  </div>
-  <div class="legal">
-    <span>© 2026 阿豪 · 某某大学</span>
-    <span>Set in Cormorant & Inter</span>
-  </div>
-</footer>
-
-<script src="content.js"></script>
-<script src="pages.js"></script>
-</body>
+    </footer>
+  </body>
 </html>
